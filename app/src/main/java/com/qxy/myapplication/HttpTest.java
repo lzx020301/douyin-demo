@@ -1,12 +1,21 @@
 package com.qxy.myapplication;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qxy.myapplication.JsonData.UserMessage;
 import com.qxy.myapplication.JsonData.VideoRoot;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import okhttp3.Call;
 import okhttp3.FormBody;
@@ -66,6 +75,7 @@ public class HttpTest
             Response execute = call.execute();
             String str = execute.body().string();
             InitProject.client_token = str.substring(25 ,89);
+            System.out.println(str.substring(25 ,89));
         } catch (IOException e) {
             e.printStackTrace();
         }

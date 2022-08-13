@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.qxy.myapplication.adapter.MyAdapter;
+import com.qxy.myapplication.mvvm.Dianshiju;
 import com.qxy.myapplication.mvvm.Movie;
 
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ public class MainActivity2 extends AppCompatActivity {
         Intent it2 = getIntent();
         Bundle bd = it2.getExtras();
 
+        //Dianshiju
+        //Zongyi
         List<Movie> movieList = new ArrayList<>();
         for(int i=0;i<10;i++){
             Movie movie = new Movie(bd.getString("title" + i), bd.getString("actors" + i) , bd.getString("poster" + i));

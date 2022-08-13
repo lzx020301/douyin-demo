@@ -11,7 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.qxy.myapplication.MainActivity2;
 import com.qxy.myapplication.R;
+import com.qxy.myapplication.mvvm.Dianshiju;
 import com.qxy.myapplication.mvvm.Movie;
 
 import java.util.List;
@@ -35,10 +37,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Movie movie = movieList.get(position);
-        holder.title.setText(movie.getTitle());
-        holder.actors.setText(movie.getActors());
-        Glide.with(context).load(movie.getPoster()).into(holder.imageView);
+        Movie dianshiju = movieList.get(position);
+        holder.title.setText(dianshiju.getTitle());
+        holder.actors.setText(dianshiju.getActors());
+        Glide.with(context).load(dianshiju.getPoster()).into(holder.imageView);
     }
 
     @Override
