@@ -27,6 +27,13 @@
             android:text="@{User.name}"
             android:id="@+id/tv_username" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="跳转"
+            android:textSize="20dp"
+            android:id="@+id/btu_tiao" />
+
     </LinearLayout>
 
 </layout>

@@ -2,16 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.qxy.myapplication">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <queries>
-        <!--允许查询抖音和抖音极速版的软件包信息-->
+
+        <!-- 允许查询抖音和抖音极速版的软件包信息 -->
         <package android:name="com.ss.android.ugc.aweme" />
         <package android:name="com.ss.android.ugc.aweme.lite" />
     </queries>
 
     <application
-        android:name="com.qxy.myapplication.InitProject"
+        android:name=".InitProject"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -22,7 +24,10 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name="com.qxy.myapplication.MainActivity"
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,12 +36,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.qxy.myapplication.douyinapi.DouYinEntryActivity"
+            android:name=".douyinapi.DouYinEntryActivity"
+            android:exported="true"
             android:launchMode="singleTask"
-            android:taskAffinity="com.qxy.GenshinImpact"
-            android:exported="true">
-
-        </activity>
+            android:taskAffinity="com.qxy.GenshinImpact"></activity>
     </application>
 
 </manifest>
