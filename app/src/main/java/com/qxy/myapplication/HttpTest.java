@@ -27,7 +27,6 @@ public class HttpTest
         Call call = okHttpClient.newCall(request);
                 try {
                     Response execute = call.execute();
-                    System.out.println(execute.body().string());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -48,9 +47,6 @@ public class HttpTest
                     String str_json = JSON.toJSONString(str);
                     ObjectMapper objectMapper = new ObjectMapper();
                     userMessage = objectMapper.readValue(str ,UserMessage.class);
-                    System.out.println(userMessage.getData().getNickname());
-                    System.out.println(str_json);
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -69,7 +65,6 @@ public class HttpTest
         try {
             Response execute = call.execute();
             String str = execute.body().string();
-            System.out.println(str.substring(25 ,89));
             InitProject.client_token = str.substring(25 ,89);
         } catch (IOException e) {
             e.printStackTrace();
@@ -88,7 +83,6 @@ public class HttpTest
             System.out.println(execute.body().string());
             JSONObject jsonObject = JSONObject.parseObject(str);
             videoRoot = JSON.toJavaObject(jsonObject ,VideoRoot.class);
-            System.out.println(videoRoot.getData().getList().get(1).getActors().get(1));
         } catch (IOException e) {
             e.printStackTrace();
         }
