@@ -12,43 +12,37 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.qxy.myapplication.R;
-import com.qxy.myapplication.mvvm.Movie;
+import com.qxy.myapplication.mvvm.Dianshiju;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
-    List<Movie> movieList;
+public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
+    List<Dianshiju> dianshijuList;
     Context context;
 
-    public MyAdapter(List<Movie> movieList , Context context) {
-        this.movieList = movieList;
+    public MyAdapter2(List<Dianshiju> dianshijuList ,Context context) {
+        this.dianshijuList = dianshijuList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    /*与item.xml进行绑定*/
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item ,parent ,false);
-        MyViewHolder myViewHolder = new MyViewHolder(itemView);
+        MyAdapter2.MyViewHolder myViewHolder = new MyAdapter2.MyViewHolder(itemView);
         return myViewHolder;
     }
-
     @Override
-    /*在页面显示的时候需要做的事情
-    * 给控件赋值等*/
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Movie movie = movieList.get(position);
-        holder.title.setText(movie.getTitle());
-        holder.actors.setText(movie.getActors());
-        Glide.with(context).load(movie.getPoster()).into(holder.imageView);
+    public void onBindViewHolder(@NonNull MyAdapter2.MyViewHolder holder, int position) {
+        Dianshiju dianshiju = dianshijuList.get(position);
+        holder.title.setText(dianshiju.getTitle());
+        holder.actors.setText(dianshiju.getActors());
+        Glide.with(context).load(dianshiju.getPoster()).into(holder.imageView);
     }
 
     @Override
-    /*其实就是返回一个列表长度
-    * 对应的就是recyclerview的长度*/
     public int getItemCount() {
-        return movieList.size();
+        return dianshijuList.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{

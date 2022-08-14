@@ -12,43 +12,38 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.qxy.myapplication.R;
-import com.qxy.myapplication.mvvm.Movie;
+import com.qxy.myapplication.mvvm.Zongyi;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
-    List<Movie> movieList;
+public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder>{
+    List<Zongyi> zongyiList;
     Context context;
 
-    public MyAdapter(List<Movie> movieList , Context context) {
-        this.movieList = movieList;
+    public MyAdapter3(List<Zongyi> zongyiList ,Context context) {
+        this.zongyiList = zongyiList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    /*与item.xml进行绑定*/
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyAdapter3.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item ,parent ,false);
         MyViewHolder myViewHolder = new MyViewHolder(itemView);
         return myViewHolder;
     }
 
     @Override
-    /*在页面显示的时候需要做的事情
-    * 给控件赋值等*/
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Movie movie = movieList.get(position);
-        holder.title.setText(movie.getTitle());
-        holder.actors.setText(movie.getActors());
-        Glide.with(context).load(movie.getPoster()).into(holder.imageView);
+        Zongyi zongyi = zongyiList.get(position);
+        holder.title.setText(zongyi.getTitle());
+        holder.actors.setText(zongyi.getActors());
+        Glide.with(context).load(zongyi.getPoster()).into(holder.imageView);
     }
 
     @Override
-    /*其实就是返回一个列表长度
-    * 对应的就是recyclerview的长度*/
     public int getItemCount() {
-        return movieList.size();
+        return zongyiList.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
